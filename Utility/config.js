@@ -1,10 +1,10 @@
 export default {
-    apiKey: "AIzaSyBBIsnuCRaz7MKvpa3xnNblkicVvyv3YTU",
-    authDomain: "finedining-e10ce.firebaseapp.com",
-    databaseURL: "https://finedining-e10ce.firebaseio.com",
-    projectId: "finedining-e10ce",
-    storageBucket: "finedining-e10ce.appspot.com",
-    messagingSenderId: "264922568674",
-    appId: "1:264922568674:web:6822c55b3b6868460ecbbb"
+    apiKey: "AIzaSyDQgNgcvi6Y04Gzntn8g91pzVPALp5Szc0",
+    authDomain: "finedining-6826f.firebaseapp.com",
+    databaseURL: "https://finedining-6826f.firebaseio.com",
+    projectId: "finedining-6826f",
+    storageBucket: "finedining-6826f.appspot.com",
+    messagingSenderId: "171461234315",
+    appId: "1:171461234315:web:2b133ac3fea94840bfce8e"
 };
 

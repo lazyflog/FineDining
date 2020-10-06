@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-
-export default function RegistView(){
+export default function ReservView(){
         return(
             <View style={styles.container1}>
-                <Text style={{fontSize: 30, color: 'white'}}>RegisterView</Text>
+                <Text style={{fontSize: 30, color: 'white'}}>ReservScreen</Text>
             </View>
             );
 }
@@ -15,6 +14,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#04B4AE'
+        backgroundColor: '#DA81F5'
     }
 })
