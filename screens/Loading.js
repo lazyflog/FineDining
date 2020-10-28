@@ -40,7 +40,7 @@ export default LoadingScreen = () => {
                 source={require("../Utility/dish.json")}
                 autoPlay
                 loop
-                style={{ width: "100%" }}
+                style={{ width: "60%" }}
             />
         </Container>
     );

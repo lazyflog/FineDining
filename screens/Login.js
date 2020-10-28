@@ -90,9 +90,6 @@ export default SignInScreen = ({ navigation }) => {
                     </Text>
                 </Text>
             </SignUp>
-
-            <HeaderGraphic>
-            </HeaderGraphic>
             <StatusBar barStyle="dark-content" />
         </Container>
     );
@@ -143,13 +140,6 @@ const Loading = styled.ActivityIndicator.attrs((props) => ({
 
 const SignUp = styled.TouchableOpacity`
     margin-top: 16px;
-`;
-
-const HeaderGraphic = styled.View`
-    position: absolute;
-    width: 100%;
-    top: -50px;
-    z-index: -100;
 `;
 
 const StatusBar = styled.StatusBar``;
