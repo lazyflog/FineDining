@@ -43,7 +43,7 @@ export default MainStackScreens = () => {
                     iconName = "ios-home";
             }
 
-            return <Ionicons name={iconName} size={24} color={focused ? "#04B4AE" : "#666666"} />;
+            return <Ionicons name={iconName} size={24} color={focused ? "black" : "#666666"} />;
         },
     });
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState} from "react";
 import { Platform } from "react-native";
 import styled from "styled-components";
 import { AntDesign } from "@expo/vector-icons";

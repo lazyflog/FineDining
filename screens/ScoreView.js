@@ -3,7 +3,7 @@ import { SafeAreaView, StatusBar, ScrollView} from "react-native";
 import styled from "styled-components";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function App() {
+export default ScoreView = () => {
     const recipes = [
         {
             name: "크림",

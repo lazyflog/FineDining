@@ -1,58 +1,84 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import React from "react";
+import styled from "styled-components";
+import { SafeAreaView, StatusBar } from "react-native";
+
+import Text from "../Utility/Text";
+import FeedData from "../FeedData";
 
 
-export default function MainView(){
-        return(
-            <View style={styles.background}>
-            <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={styles.container1}>
-                <Text style={{fontSize: 30, fontWeight: 'bold', color: 'white'}}>오늘의 추천</Text>
-                <ScrollView horizontal={true} 
-                showsHorizontalScrollIndicator={false}
-                pagingEnabled={true} 
-                scrollIndicatorInsets={{top:10, left:10, bottom:10, right:10}}// ios only
-                >
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                </ScrollView>
-                <Text style={{fontSize: 30, fontWeight: 'bold', color: 'white'}}>금주의 FineDining</Text>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-                <Image
-                    style={{height: 300, width: 300, resizeMode: 'contain', borderRadius: 80}}
-                    source={require('../assets/1.jpg')}/>
-            </View>
-            </ScrollView>
-            </View>
-            );
-}
+export default MainView = () => {
+    const renderPost = ({ item }) => (
+        <PostContainer>
+            <PostHeaderContainer>
+                <PostInfoContainer>
+                    <PostProfilePhoto source={item.user.profilePhotoUrl} />
+                    <Text small heavy>&nbsp;&nbsp;{item.user.username}</Text>
+                    <Post>
+                        <FeedPhoto source={item.Review.photoUrl} />
+                    </Post>
+                    <Text large>{item.Review.RestName}</Text>
+                    <Text medium>{item.Review.MenuName}</Text>
+                </PostInfoContainer>
+            </PostHeaderContainer>
+            
+        </PostContainer>
+    );
+    return (
+        <Container>
+            <SafeAreaView>
+            <FeedContainer>
+                <Text dark title heavy margin="0 0 0 15px">
+                    오늘의 추천
+                </Text>
+                <Feed data={FeedData} renderItem={renderPost} keyExtractor={(item) => item.id.toString()} />
+            </FeedContainer>
+            </SafeAreaView>
+            <StatusBar barStyle="dark-content" />
+        </Container>
+    );
+};              
 
-const styles = StyleSheet.create({
-    container1: {
-        marginTop: 50,
-        marginStart: 10,
-        flex: 1,
-        justifyContent: 'space-evenly',
-        alignItems: 'flex-start',
-        backgroundColor: '#04B4AE'
-    },
-    background: {
-        backgroundColor: '#04B4AE',
-        flex: 1
-    }
-})
+const Container = styled.View`
+    flex: 1;
+    background-color: #ebecf3;
+    padding-bottom: 80px;
+`;
+
+const PostContainer = styled.View`
+    margin: 16px 16px 0 16px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 8px;
+`;
+
+const Post = styled.View`
+    margin-top: 10px;
+    margin-bottom: 10px;
+`;
+
+const PostHeaderContainer = styled.View`
+    flex-direction: row;
+    margin-bottom: 16px;
+    align-items: center;
+`;
+
+const FeedPhoto = styled.Image`
+    width: 100%;
+    height: 150px;
+    border-radius: 6px; 
+`;
+
+const PostProfilePhoto = styled.Image`
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+`;
+
+const PostInfoContainer = styled.View`
+    flex: 1;
+    margin: 0 16px;
+`;
+
+const Feed = styled.FlatList``;
+
+const FeedContainer = styled.View``;
