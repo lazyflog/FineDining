@@ -6,6 +6,7 @@ import { UserContext } from "../Utility/User";
 import AuthStackScreens from "./AuthStackScreens";
 import MainStackScreens from "./MainStackScreens";
 import LoadingScreen from "../screens/Loading";
+import RestaurantView from "../screens/RestaurantView";
 
 
 export default AppStackScreens = () => {
@@ -17,10 +18,11 @@ export default AppStackScreens = () => {
             {user.isLoggedIn === null ? (
                 <AppStack.Screen name="Loading" component={LoadingScreen} />
             ) : user.isLoggedIn ? (
-                <AppStack.Screen name="Main" component={MainStackScreens} />
+                    <AppStack.Screen name="Main" component={MainStackScreens}/>
             ) : (
                 <AppStack.Screen name="Auth" component={AuthStackScreens} />
             )}
+            <AppStack.Screen name="Restaurant" component={RestaurantView}/>
         </AppStack.Navigator>
     );
 };

@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SafeAreaView, StatusBar, ScrollView } from "react-native";
 import styled from "styled-components";
 
-export default ReservView = ({ navigation }) => {
+import { UserContext } from "../Utility/User";
+
+export default ReserveView = ({ navigation }) => {
+
+    const [user] = useContext(UserContext);
+
     const stores = [
         {
             name: "크림",
@@ -96,7 +101,7 @@ export default ReservView = ({ navigation }) => {
                 <Recipes>
                     {stores.map((stores, index) => {
                         return (
-                            <ReservContainer>
+                            <ReserveContainer>
                             <Recipe key={index}>
                                 <RecipeImage source={stores.image} />
                                 <RecipeInfo>
@@ -107,15 +112,15 @@ export default ReservView = ({ navigation }) => {
                                         {stores.info}
                                     </Text>
                                 </RecipeInfo>
-                                <Button onPress={() => { 
-                                    navigation.navigate("restaurant")
+                                <Button onPress={() => {
+                                    navigation.navigate("Restaurant")
                                     }}>
                                     <Text bold small>
                                         자세히
                                     </Text>
                                 </Button>
                             </Recipe>
-                            </ReservContainer>
+                            </ReserveContainer>
                         );
                     })}
                 </Recipes>
@@ -156,7 +161,7 @@ const Text = styled.Text`
     }}
 `;
 
-const ReservContainer = styled.View`
+const ReserveContainer = styled.View`
     margin: 16px 16px 0 16px;
     background-color: #ffffff;
     border-radius: 6px;

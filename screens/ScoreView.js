@@ -47,7 +47,7 @@ export default ScoreView = () => {
                         <Text>경기도 안산시 초지동</Text>
                     </MainRecipe>
                     <Button>
-                        <Text bold small>
+                        <Text bold small buttonText>
                             자세히
                         </Text>
                     </Button>
@@ -94,7 +94,7 @@ const Text = styled.Text`
     color: ${(props) => (props.dark ? "#000" : "#FFF")};
     font-family: "AvenirNext-Regular";
 
-    ${({ title, large, small }) => {
+    ${({ title, large, small, buttonText }) => {
         switch (true) {
             case title:
                 return `font-size: 32px`;
@@ -111,6 +111,18 @@ const Text = styled.Text`
                 return `font-weight: 600`;
             case heavy:
                 return `font-weight: 700`;
+        }
+    }}
+
+    ${({ buttonText }) => {
+        switch (true) {
+            case buttonText:
+                return `
+                    shadow-opacity: 0.45;
+                    shadow-radius: 3px;
+                    shadow-color: #333;
+                    shadow-offset: 0px 0px;
+                `;
         }
     }}
 `;
@@ -133,6 +145,10 @@ const Back = styled.View`
 const MainRecipe = styled.View`
     padding: 0 32px;
     margin: 200px 0 32px 0;
+    shadow-opacity: 0.85;
+    shadow-radius: 3px;
+    shadow-color: #333;
+    shadow-offset: 0px 0px;
 `;
 
 const Divider = styled.View`
@@ -144,7 +160,7 @@ const Divider = styled.View`
 
 const Button = styled.TouchableOpacity`
     margin: 0 0 48px 32px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(160, 160, 160, 0.75);
     align-self: flex-start;
     padding: 6px 18px;
     border-radius: 100px;

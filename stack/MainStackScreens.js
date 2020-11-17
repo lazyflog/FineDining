@@ -4,8 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Main from "../screens/MainView";
 import Score from "../screens/ScoreView";
-import Reserv from "../screens/Reserv";
+import Reserve from "../screens/Reserve";
 import Profile from "../screens/ProfileView";
+import Restaurant from "../screens/RestaurantView";
 
 export default MainStackScreens = () => {
     const MainStack = createBottomTabNavigator();
@@ -31,7 +32,7 @@ export default MainStackScreens = () => {
                     iconName = "ios-star-half";
                     break;
 
-                case "Reserv":
+                case "Reserve":
                     iconName = "ios-restaurant";
                     break;
 
@@ -51,7 +52,7 @@ export default MainStackScreens = () => {
         <MainStack.Navigator tabBarOptions={tabBarOptions} screenOptions={screenOptions}>
             <MainStack.Screen name="Main" component={Main} />
             <MainStack.Screen name="Score" component={Score} />
-            <MainStack.Screen name="Reserv" component={Reserv} />
+            <MainStack.Screen name="Reserve" component={Reserve} />
             <MainStack.Screen name="Profile" component={Profile} />
         </MainStack.Navigator>
     );
