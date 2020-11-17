@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import PostPhoto from "../Utility/PostPhoto";
+import { ScrollView } from "react-native";
 
 import { UserContext } from "../Utility/User";
 import { FirebaseContext } from "../Utility/Fire";
@@ -19,6 +21,7 @@ export default ProfileView = () => {
         }
     };
         return(
+            <ScrollView showsVerticalScrollIndicator={false}>
             <Container>
             <ProfilePhotoContainer>
                 <ProfilePhoto
@@ -37,7 +40,7 @@ export default ProfileView = () => {
             <StatsContainer>
                 <StatContainer>
                     <Text large light>
-                        1
+                        4
                     </Text>
                     <Text small bold color="#c2c4cd">
                         Posts
@@ -60,15 +63,24 @@ export default ProfileView = () => {
                     </Text>
                 </StatContainer>
             </StatsContainer>
-
             <Logout onPress={logOut}>
                 <Text medium bold color="#23a8d9">
                     Log out
                 </Text>
             </Logout>
+            <PostContain>
+                <PostPhoto />
+            </PostContain>
         </Container>
+        </ScrollView>
     );
 };
+const PostContain = styled.View`
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 30px;
+    flex: 1;
+`;
 
 const Container = styled.View`
     align-items: center;
@@ -101,5 +113,5 @@ const StatContainer = styled.View`
 `;
 
 const Logout = styled.TouchableOpacity`
-    margin-bottom: 32px;
+    margin-top: 32px;
 `;

@@ -1,9 +1,8 @@
 import React from "react";
-import { SafeAreaView, StatusBar, ScrollView} from "react-native";
+import { SafeAreaView, StatusBar, ScrollView } from "react-native";
 import styled from "styled-components";
-import { Entypo } from "@expo/vector-icons";
 
-export default ReservView = () => {
+export default ReservView = ({ navigation }) => {
     const stores = [
         {
             name: "크림",
@@ -108,7 +107,9 @@ export default ReservView = () => {
                                         {stores.info}
                                     </Text>
                                 </RecipeInfo>
-                                <Button>
+                                <Button onPress={() => { 
+                                    navigation.navigate("restaurant")
+                                    }}>
                                     <Text bold small>
                                         자세히
                                     </Text>

@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { SafeAreaView, StatusBar } from "react-native";
+import { Ionicons } from '@expo/vector-icons'; 
 
 import Text from "../Utility/Text";
 import FeedData from "../FeedData";
 
 
 export default MainView = () => {
+    const stars = {
+    }
+
     const renderPost = ({ item }) => (
         <PostContainer>
             <PostHeaderContainer>
@@ -82,3 +86,16 @@ const PostInfoContainer = styled.View`
 const Feed = styled.FlatList``;
 
 const FeedContainer = styled.View``;
+/*
+const StarContainer = styled.View`
+ ${() => {
+        if(Review.stars == 1){
+            return (
+                <Ionicons name="ios-star" size={24} color="black" />
+            <Ionicons name="ios-star-outline" size={24} color="black" />
+            <Ionicons name="ios-star-outline" size={24} color="black" />
+            <Ionicons name="ios-star-outline" size={24} color="black" />
+            );
+        }
+    }}
+`;*/

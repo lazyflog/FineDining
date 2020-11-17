@@ -43,6 +43,38 @@ const Firebase = {
         }
     },
 
+    uploadFeedPhoto: async (uri) => {
+        const uid = Firebase.getCurrentUser().uid;
+
+        try {
+            const photo = await Firebase.getBlob(uri);
+            const imageRef = firebase.storage().ref("FeedPhotos").child(uid);
+            await imageRef.put(photo);
+            
+            const url = await imageRef.getDownloadURL();
+
+            await db.collection("FeedPhotos").doc(uid).update({
+                FeedPhotoUrl: url,
+            });
+            return url;
+
+        }catch (error) {
+            console.log("Error @upfloadFeed: ", error)
+        }
+    },
+
+    getFeed: async (uid) => {
+        try {
+            const user = await db.collection("FeedPhotos").doc(uid).get();
+
+            if (user.exists) {
+                return user.data();
+            }
+        } catch (error) {
+            console.log("Error @getFeed: ", error);
+        }
+    },
+
     uploadProfilePhoto: async (uri) => {
         const uid = Firebase.getCurrentUser().uid;
 

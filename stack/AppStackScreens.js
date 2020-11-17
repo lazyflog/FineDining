@@ -7,6 +7,7 @@ import AuthStackScreens from "./AuthStackScreens";
 import MainStackScreens from "./MainStackScreens";
 import LoadingScreen from "../screens/Loading";
 
+
 export default AppStackScreens = () => {
     const AppStack = createStackNavigator();
     const [user] = useContext(UserContext);

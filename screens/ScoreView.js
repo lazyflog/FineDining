@@ -74,7 +74,6 @@ export default ScoreView = () => {
                                         {recipe.info}
                                     </Text>
                                 </RecipeInfo>
-
                                 <AntDesign name="hearto" size={18} color="#000" />
                             </Recipe>
                         );

@@ -9,6 +9,7 @@ export default [
             RestName: "신안산대학교",
             MenuName: "컴퓨터정보",
             photoUrl: require("./assets/1.jpg"),
+            stars: 3
         }
     },
     {
@@ -21,6 +22,7 @@ export default [
             RestName: "학식",
             MenuName: "라면",
             photoUrl: require("./assets/ramen.jpg"),
+            stars: 4
         }
     },
     {
@@ -33,6 +35,7 @@ export default [
             RestName: "맘스터치",
             MenuName: "싸이버거",
             photoUrl: require("./assets/burger.jpg"),
+            stars: 5
         }
     },
     {
@@ -45,6 +48,7 @@ export default [
             RestName: "신안산대학교",
             MenuName: "컴퓨터정보",
             photoUrl: require("./assets/1.jpg"),
+            stars: 3
         }
     },
 ];
