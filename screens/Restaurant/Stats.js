@@ -15,7 +15,7 @@ export default function Stats() {
 
             <View>
                 <Text style={styles.title}>
-                    4.5
+                    4.4
                     <Text style={[styles.subTitle, { paddingLeft: 8 }]}>&nbsp;&nbsp; 8천명 투표</Text>
                 </Text>
 

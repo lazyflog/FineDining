@@ -3,7 +3,7 @@ export default [
         id: "asd123",
         user: {
             username: "양종선",
-            profilePhotoUrl: require("./assets/defaultProfilePhoto.jpg"),
+            profilePhotoUrl: require("./assets/logo.png"),
         },
         Review: {
             RestName: "신안산대학교",
@@ -42,7 +42,7 @@ export default [
         id: "asd126",
         user: {
             username: "김승주",
-            profilePhotoUrl: require("./assets/logo.png"),
+            profilePhotoUrl: require("./assets/defaultProfilePhoto.jpg"),
         },
         Review: {
             RestName: "신안산대학교",

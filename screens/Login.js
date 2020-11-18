@@ -39,6 +39,7 @@ export default SignInScreen = ({ navigation }) => {
 
     return (
         <Container>
+            <Logo source={require("../assets/logo.png")}/>
             <Main>
                 <Text title bold center>
                     Fine Dining
@@ -95,12 +96,19 @@ export default SignInScreen = ({ navigation }) => {
     );
 };
 
+const Logo = styled.Image`
+    margin-top: 90px;
+    margin-left: 150px;
+    width: 130px;
+    height: 130px;
+`;
+
 const Container = styled.View`
     flex: 1;
 `;
 
 const Main = styled.View`
-    margin-top: 192px;
+    margin-top: 42px;
 `;
 
 const Auth = styled.View`

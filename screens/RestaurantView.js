@@ -1,18 +1,14 @@
 import React from "react";
-import { View, StyleSheet, StatusBar, TouchableOpacity } from "react-native";
-import { colors } from "../Utility/style";
+import { SafeAreaView, View, StyleSheet, StatusBar, TouchableOpacity, ScrollView } from "react-native";
 import Header from "./Restaurant/Header";
 import About from "./Restaurant/About";
 import Stats from "./Restaurant/Stats";
 import Amenities from "./Restaurant/Amenities";
 
-export default RestaurantView = ({navigation}) => {
+export default RestaurantView = ({}) => {
     return (
-        <View style={styles.container}>
-            <TouchableOpacity style={styles.button} onPress={() => {
-							navigation.goBack();
-						}}
-						/>
+        <SafeAreaView style={styles.container}>
+            <ScrollView showsVerticalScrollIndicator={false}>
             <StatusBar barStyle="light-content" />
 
             <Header />
@@ -22,14 +18,15 @@ export default RestaurantView = ({navigation}) => {
                 <Stats />
                 <Amenities />
             </View>
-        </View>
+            </ScrollView>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black'
+        backgroundColor: '#222'
     },
     button: {
 		marginTop: 32,

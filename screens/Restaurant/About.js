@@ -1,8 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { gs, colors } from "../../Utility/style";
+import { AntDesign } from '@expo/vector-icons';
 
-const hotel = {
+const rest = {
     name: "롤링 파스타",
     price: "5000 ~ 15000원",
     location: "경기도 부천시",
@@ -13,16 +14,17 @@ const hotel = {
 export default function About() {
     return (
         <View style={styles.container}>
-            <Text style={gs.title}>{hotel.name}</Text>
+            <Text style={gs.title}>{rest.name}</Text>
 
             <Text style={styles.info}>
-                {hotel.price} &#8226; {hotel.location}
+                {rest.price} &#8226; {rest.location}
             </Text>
 
             <View style={gs.divider} />
 
-            <Text style={gs.sectionTitle}>정보{"\n"} {hotel.name}</Text>
-            <Text style={styles.about}>{hotel.about}</Text>
+            <Text style={gs.sectionTitle}>정보{"\n\n"}{rest.name}</Text>
+            <Text style={gs.sectionTitle}><AntDesign name="phone" size={18} color="white" /> +82-1234-5678{"\n"}</Text>
+            <Text style={styles.about}>{rest.about}</Text>
         </View>
     );
 }
