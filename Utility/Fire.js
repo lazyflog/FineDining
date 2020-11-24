@@ -63,6 +63,32 @@ const Firebase = {
         }
     },
 
+    uploadFeed: async (imgUrl, text, storeName, menuName, storePosition) => {
+        const uid = Firebase.getCurrentUser().uid;
+
+        try {
+            const photo = await Firebase.getBlob(imgUrl);
+            const imageRef = firebase.storage().ref("FeedPhotos").child(imgUrl);
+            await imageRef.put(photo);
+            
+            const url = await imageRef.getDownloadURL();
+
+            await db.collection("FeedPhotos").doc(uid).update({
+                FeedPhotoUrl: url,
+            });
+            return url;
+
+            await db.collection("users").doc(uid).set({
+                username: user.username,
+                email: user.email,
+                profilePhotoUrl,
+            });
+
+        }catch (error) {
+            console.log("Error @upfloadFeed: ", error)
+        }
+    },
+
     getFeed: async (uid) => {
         try {
             const user = await db.collection("FeedPhotos").doc(uid).get();

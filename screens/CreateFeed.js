@@ -8,6 +8,30 @@ export default CreateFeed = () => {
     const [feed, setFeed] = useState("");
     const [feedPhoto, setFeedPhoto] = useState();
 
+    const pushData = async () => {
+        setLoading(true);
+
+        try {
+            await firebase.uploadFeedPhoto(email, password);
+
+            const uid = firebase.getCurrentUser().uid;
+
+            const userInfo = await firebase.getUserInfo(uid);
+
+            setUser({
+                username: userInfo.username,
+                email: userInfo.email,
+                uid,
+                profilePhotoUrl: userInfo.profilePhotoUrl,
+                isLoggedIn: true,
+            });
+        } catch (error) {
+            alert(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const pickImage = async () => {
         try {
             let result = await ImagePicker.launchImageLibraryAsync({
@@ -56,30 +80,30 @@ export default CreateFeed = () => {
         <SafeAreaView style = {styles.container}>
             <Text style = {styles.header}>새 게시글</Text>
             <View style={styles.con}>
-                <TouchableOpacity style = {styles.photoContainer}>
-                    <Text style = {styles.photoText}>+</Text>
+                <TouchableOpacity style={styles.photoContainer}>
+                    <Text style={styles.photoText}>+</Text>
                 </TouchableOpacity>
-                <View style = {styles.aboutContainer}>
-                    <TextInput style = {styles.aboutText}>문구 입력...</TextInput>
+                <View style={styles.aboutContainer}>
+                    <TextInput style={styles.aboutText} placeholder="문구 입력"></TextInput>
                 </View>
             </View>
-            <View style = {styles.con2}>
-                <View style = {styles.textContainer} >
-                    <TextInput style = {styles.text}>가게 이름 입력하기</TextInput>
+            <View style={styles.con2}>
+                <View style={styles.textContainer}>
+                    <TextInput style={styles.text} placeholder="가게 이름 입력하기"></TextInput>
                 </View>
             </View>
-            <View style = {styles.con2}>
-                <View style = {styles.textContainer} >
-                    <TextInput style = {styles.text}>메뉴 이름 입력하기</TextInput>
+            <View style={styles.con2}>
+                <View style={styles.textContainer}>
+                    <TextInput style={styles.text} placeholder="메뉴 이름 입력하기"></TextInput>
                 </View>
             </View>
-            <View style = {styles.con2}>
-                <View style = {styles.textContainer} >
-                    <TextInput style = {styles.text}>가게 위치 입력하기</TextInput>
+            <View style={styles.con2}>
+                <View style={styles.textContainer}>
+                    <TextInput style={styles.text} placeholder="가게 위치 입력하기"></TextInput>
                 </View>
             </View>
-            <TouchableOpacity style = {styles.button}>
-                <Text style = {styles.buttonText}>글쓰기</Text>
+            <TouchableOpacity style={styles.button} onPress={pushData}>
+                <Text style={styles.buttonText}>글쓰기</Text>
             </TouchableOpacity>
         </SafeAreaView>
     );
@@ -152,13 +176,14 @@ const styles = StyleSheet.create({
         height: 40,
         backgroundColor: "skyblue",
         borderRadius: 8,
-        marginTop: 20
+        marginTop: 20,
+        justifyContent: 'center',
+        alignContent: 'center',
     },
     buttonText: {
-        marginTop: 10,
-        marginLeft: 20,
         fontSize: 15,
         fontWeight: "bold",
-        color: "white"
+        color: "white",
+        textAlign: 'center',
     }
 })
