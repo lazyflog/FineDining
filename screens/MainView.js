@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { SafeAreaView, StatusBar } from "react-native";
-import { Ionicons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Text from "../Utility/Text";
 import FeedData from "../FeedData";
 
 
-export default MainView = () => {
+export default MainView = ({ navigation }) => {
     const stars = {
     }
 
@@ -38,9 +38,22 @@ export default MainView = () => {
             </FeedContainer>
             </SafeAreaView>
             <StatusBar barStyle="dark-content" />
+            <CreateFeed onPress={() => {
+                navigation.navigate("Feed")
+            }}>
+            <MaterialCommunityIcons name="pencil-circle-outline" size={64} color="gray" />
+            </CreateFeed>
         </Container>
     );
 };              
+
+const CreateFeed = styled.TouchableOpacity`
+    margin: -43px 0 0 320px;
+    background-color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+`;
 
 const Container = styled.View`
     flex: 1;

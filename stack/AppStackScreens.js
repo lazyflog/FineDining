@@ -7,6 +7,7 @@ import AuthStackScreens from "./AuthStackScreens";
 import MainStackScreens from "./MainStackScreens";
 import LoadingScreen from "../screens/Loading";
 import RestaurantView from "../screens/RestaurantView";
+import CreateFeed from "../screens/CreateFeed";
 
 
 export default AppStackScreens = () => {
@@ -22,6 +23,7 @@ export default AppStackScreens = () => {
             ) : (
                 <AppStack.Screen name="Auth" component={AuthStackScreens} />
             )}
+            <AppStack.Screen name="Feed" component={CreateFeed} />
             <AppStack.Screen name="Restaurant" component={RestaurantView}/>
         </AppStack.Navigator>
     );
