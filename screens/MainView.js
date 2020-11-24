@@ -93,13 +93,14 @@ const Container = styled.SafeAreaView`
 `;
 
 const PostContainer = styled.View`
-    margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: 7.5px;
+    margin-bottom: 12.5px;
     margin-left: 20px;
     margin-right: 20px;
     background-color: #ffffff;
     border-radius: 6px;
     padding: 8px;
+    box-shadow: 0px 0px 5px rgba(33, 33, 33, 0.25);
 `;
 
 const Post = styled.View`
