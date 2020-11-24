@@ -16,6 +16,7 @@ export default MainStackScreens = () => {
         style: {
             backgroundColor: "#ffffff",
             paddingBototm: 12,
+            height: 80,
         },
     };
 

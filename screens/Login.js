@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { StyleSheet, KeyboardAvoidingView, Animated } from 'react-native';
 import styled from "styled-components";
 
 import { FirebaseContext } from "../Utility/Fire";
@@ -38,13 +39,15 @@ export default SignInScreen = ({ navigation }) => {
     };
 
     return (
-        <Container>
-            <Logo source={require("../assets/logo.png")}/>
+        <KeyboardAvoidingView style={styles.container} behavior="padding">
+            
+            <Animated.View>
             <Main>
-                <Text title bold center>
+                <Text allowFontScaling={false} title bold center>
                     Fine Dining
                 </Text>
             </Main>
+            </Animated.View>
 
             <Auth>
                 <AuthContainer>
@@ -92,19 +95,22 @@ export default SignInScreen = ({ navigation }) => {
                 </Text>
             </SignUp>
             <StatusBar barStyle="dark-content" />
-        </Container>
+        </KeyboardAvoidingView>
     );
 };
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+    }
+})
+
 const Logo = styled.Image`
-    margin-top: 90px;
-    margin-left: 150px;
     width: 130px;
     height: 130px;
-`;
-
-const Container = styled.View`
-    flex: 1;
+    background-color: #04B4AE;
 `;
 
 const Main = styled.View`
