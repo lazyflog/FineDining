@@ -42,7 +42,7 @@ const Firebase = {
             console.log("Error @createUser: ", error.message);
         }
     },
-
+/*
     uploadFeedPhoto: async (uri) => {
         const uid = Firebase.getCurrentUser().uid;
 
@@ -100,7 +100,7 @@ const Firebase = {
             console.log("Error @getFeed: ", error);
         }
     },
-
+*/
     uploadProfilePhoto: async (uri) => {
         const uid = Firebase.getCurrentUser().uid;
 
